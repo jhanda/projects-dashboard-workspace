@@ -23,23 +23,23 @@ import javax.portlet.RenderResponse;
 import org.osgi.service.component.annotations.Component;
 
 /**
- * @author Yury Butrymovich
+ * @author Howie Chou
  */
 @Component(
 	immediate = true,
 	property = {
 		"javax.portlet.name=" + ProjectsDashboardPortletKeys.PROJECTS_DASHBOARD,
-		"mvc.command.name=/edit_project"
+		"mvc.command.name=/edit_problem"
 	},
 	service = MVCRenderCommand.class
 )
-public class EditProjectMVCRenderCommand implements MVCRenderCommand {
+public class EditProblemMVCRenderCommand implements MVCRenderCommand {
 
 	@Override
 	public String render(
 		RenderRequest renderRequest, RenderResponse renderResponse) {
 
-		return "/edit_project.jsp";
+		return "/edit_problem.jsp";
 	}
 
 }

@@ -16,11 +16,13 @@ package com.liferay.projects.dashboard.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
-import com.liferay.portal.kernel.service.ServiceContext;
-import com.liferay.portal.kernel.service.ServiceContextFactory;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.projects.dashboard.business.unit.service.BusinessUnitLocalService;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.projects.dashboard.problem.service.ProblemLocalService;
 import com.liferay.projects.dashboard.web.internal.constants.ProjectsDashboardPortletKeys;
+
+import java.util.Date;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -29,40 +31,46 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 /**
- * @author Yury Butrymovich
+ * @author Howie Chou
  */
 @Component(
 	property = {
 		"javax.portlet.name=" + ProjectsDashboardPortletKeys.PROJECTS_DASHBOARD,
-		"mvc.command.name=/edit_business_unit"
+		"mvc.command.name=/edit_problem"
 	},
 	service = MVCActionCommand.class
 )
-public class EditBusinessUnitMVCActionCommand extends BaseMVCActionCommand {
+public class EditProblemMVCActionCommand extends BaseMVCActionCommand {
 
 	@Override
 	protected void doProcessAction(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
 
-		long businessUnitId = ParamUtil.getLong(
-			actionRequest, "businessUnitId");
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
 
-		String name = ParamUtil.getString(actionRequest, "name");
+		long problemId = ParamUtil.getLong(actionRequest, "problemId");
 
-		ServiceContext serviceContext = ServiceContextFactory.getInstance(
-			actionRequest);
+		long projectId = ParamUtil.getLong(actionRequest, "projectId");
 
-		if (businessUnitId > 0) {
-			_buBusinessUnitLocalService.updateBusinessUnit(
-				businessUnitId, name);
+		int type = ParamUtil.getInteger(actionRequest, "type");
+		String description = ParamUtil.getString(actionRequest, "description");
+		int status = ParamUtil.getInteger(actionRequest, "status");
+		Date statusDate = ParamUtil.getDate(actionRequest, "statusDate", null);
+
+		if (problemId > 0) {
+			_problemLocalService.updateProblem(
+				problemId, projectId, type, description, status, statusDate);
 		}
 		else {
-			_buBusinessUnitLocalService.addBusinessUnit(name);
+			_problemLocalService.addProblem(
+				themeDisplay.getUserId(), projectId, type, description, status,
+				statusDate);
 		}
 	}
 
 	@Reference
-	private BusinessUnitLocalService _buBusinessUnitLocalService;
+	private ProblemLocalService _problemLocalService;
 
 }

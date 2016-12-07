@@ -10,4 +10,5 @@ dependencies {
 	compileOnly group: "org.osgi", name: "org.osgi.compendium", version: "5.0.0"
 	compileOnly project(":modules:projects-dashboard-business-unit:projects-dashboard-business-unit-api")
 	compileOnly project(":modules:projects-dashboard-project:projects-dashboard-project-api")
+	compileOnly project(":modules:projects-dashboard-problem:projects-dashboard-problem-api")
 }

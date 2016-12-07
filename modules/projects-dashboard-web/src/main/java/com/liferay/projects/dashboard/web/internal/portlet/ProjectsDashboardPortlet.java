@@ -14,8 +14,8 @@
 
 package com.liferay.projects.dashboard.web.internal.portlet;
 
-import com.liferay.projects.dashboard.web.internal.constants.ProjectsDashboardPortletKeys;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.projects.dashboard.web.internal.constants.ProjectsDashboardPortletKeys;
 
 import javax.portlet.Portlet;
 

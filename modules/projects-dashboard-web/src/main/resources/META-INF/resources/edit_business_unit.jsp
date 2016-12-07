@@ -15,21 +15,19 @@
 --%>
 
 <%@ include file="/init.jsp" %>
-<%
 
+<%
 String redirect = ParamUtil.getString(request, "redirect");
 
 long businessUnitId = ParamUtil.getLong(request, "businessUnitId");
 
 BusinessUnit businessUnit = BusinessUnitLocalServiceUtil.fetchBusinessUnit(businessUnitId);
-
 %>
 
 <div class="edit-business-unit">
 	<portlet:actionURL name="/edit_business_unit" var="editBusinessUnitURL">
 		<portlet:param name="mvcRenderCommandName" value="/edit_business_unit" />
 	</portlet:actionURL>
-
 
 	<aui:form action="<%= editBusinessUnitURL %>" method="post" name="fm">
 		<aui:input name="redirect" type="hidden" value="<%= redirect %>" />

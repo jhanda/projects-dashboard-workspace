@@ -14,8 +14,8 @@
 
 package com.liferay.projects.dashboard.web.internal.portlet.action;
 
-import com.liferay.projects.dashboard.web.internal.constants.ProjectsDashboardPortletKeys;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
+import com.liferay.projects.dashboard.web.internal.constants.ProjectsDashboardPortletKeys;
 
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
