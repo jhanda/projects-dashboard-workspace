@@ -148,7 +148,7 @@ portletURL.setParameter("mvcRenderCommandName", "/view");
 
 						<liferay-ui:search-container-column-date
 							name="Due Date"
-							property="userName"
+							property="expectedEndDate"
 						/>
 
 						<liferay-ui:search-container-column-text
