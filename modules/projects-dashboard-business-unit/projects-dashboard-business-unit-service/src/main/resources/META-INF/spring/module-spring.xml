@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.liferay.projects.dashboard.business.unit.service.impl.BusinessUnitLocalServiceImpl" id="com.liferay.projects.dashboard.business.unit.service.BusinessUnitLocalService" />
+	<bean class="com.liferay.projects.dashboard.business.unit.service.persistence.impl.BusinessUnitPersistenceImpl" id="com.liferay.projects.dashboard.business.unit.service.persistence.BusinessUnitPersistence" parent="basePersistence" />
+	<bean class="com.liferay.projects.dashboard.business.unit.service.impl.ProjectBULocalServiceImpl" id="com.liferay.projects.dashboard.business.unit.service.ProjectBULocalService" />
+	<bean class="com.liferay.projects.dashboard.business.unit.service.persistence.impl.ProjectBUPersistenceImpl" id="com.liferay.projects.dashboard.business.unit.service.persistence.ProjectBUPersistence" parent="basePersistence" />
+</beans>

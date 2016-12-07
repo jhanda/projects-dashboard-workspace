@@ -1,0 +1,9 @@
+Bundle-Name: tasks-api
+Bundle-SymbolicName: com.liferay.is.pmo.dashboard.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.is.pmo.dashboard.exception,\
+	com.liferay.is.pmo.dashboard.model,\
+	com.liferay.is.pmo.dashboard.service,\
+	com.liferay.is.pmo.dashboard.service.persistence
+-includeresource: META-INF/service.xml=../tasks-service/service.xml

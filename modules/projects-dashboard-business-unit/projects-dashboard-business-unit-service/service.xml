@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder auto-namespace-tables="true" package-path="com.liferay.projects.dashboard.business.unit">
+	<author>Yury Butrymovich</author>
+	<namespace>PD</namespace>
+	<entity local-service="true" name="BusinessUnit" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="businessUnitId" primary="true" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="name" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column case-sensitive="false" name="name" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="Name" return-type="BusinessUnit">
+			<finder-column name="name" />
+		</finder>
+	</entity>
+	<entity local-service="true" name="ProjectBU" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="projectBUId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="businessUnitId" type="long" />
+		<column name="projectId"  type="long" />
+		<column name="type" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column case-sensitive="false" name="type" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="Type" return-type="Collection">
+			<finder-column name="type" />
+		</finder>
+	</entity>
+</service-builder>

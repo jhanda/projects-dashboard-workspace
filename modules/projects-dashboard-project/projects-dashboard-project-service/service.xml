@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder auto-namespace-tables="true" package-path="com.liferay.projects.dashboard.project">
+	<author>Ryan Park</author>
+	<namespace>PD</namespace>
+	<entity local-service="true" name="Project" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="projectId" primary="true" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="businessUnitId" type="long" />
+		<column name="name" type="String" />
+		<column name="description" type="String" />
+		<column name="priority" type="int" />
+		<column name="health" type="int" />
+		<column name="expectedStartDate" type="Date" />
+		<column name="expectedEndDate" type="Date" />
+		<column name="actualStartDate" type="Date" />
+		<column name="actualEndDate" type="Date" />
+		<column name="status" type="int" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="expectedEndDate" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="Status" return-type="Collection">
+			<finder-column name="status" />
+		</finder>
+	</entity>
+</service-builder>
